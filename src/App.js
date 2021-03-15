@@ -1,24 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
-
+import Todosproductos from './components/productos'
+import Producto from './components/producto'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  NavLink
+} from "react-router-dom";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <Router>
+        <div className="container mt-5">
+
+        <div className="btn-group">
+          <Link 
+          to = "/inicio"
+          className="btn btn-dark"
+          >
+          Todos los productos
+          </Link>
+          <Link 
+          to="/frutas" 
+          className="btn  btn-dark" >
+            Frutas
+          </Link>
+          <Link
+          to= "/verdura"
+          className="btn btn-dark">
+            Verduras
+          </Link>
+        </div>
+        <Switch>
+            <Route path="/producto/:id" >
+              <Producto />
+            </Route>
+        
+            <Route path="/inicio" >
+              <Todosproductos />
+            </Route>
+            
+
+
+        </Switch>
+        </div>
+    </Router>
   );
 }
 
