@@ -1,5 +1,6 @@
 import Todosproductos from './components/productos'
 import Producto from './components/producto'
+import Lista from './components/lista'
 import {
   BrowserRouter as Router,
   Switch,
@@ -39,7 +40,9 @@ function App() {
             <Route path="/inicio" >
               <Todosproductos />
             </Route>
-            
+            <Route path="/" >
+              <Lista />
+            </Route>
 
 
         </Switch>
