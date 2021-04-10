@@ -1,5 +1,8 @@
+import React, {useState}from 'react'
 import Todosproductos from './components/productos'
 import Producto from './components/producto'
+import Lista from './components/lista'
+import AñadirAlCarro from './components/addToCar'
 import {
   BrowserRouter as Router,
   Switch,
@@ -8,6 +11,9 @@ import {
   NavLink
 } from "react-router-dom";
 function App() {
+const [carro,setCarro] = useState([])
+
+
   return (
 
     <Router>
@@ -33,15 +39,20 @@ function App() {
         </div>
         <Switch>
             <Route path="/producto/:id" >
-              <Producto />
+              <Producto
+               carro={carro} 
+               setCarro={setCarro}
+               />
             </Route>
-        
+            {/* <Route path="/productos/carro" >
+             <AñadirAlCarro />
+            </Route> */}
             <Route path="/inicio" >
-              <Todosproductos />
+              <Todosproductos /> 
             </Route>
-            
-
-
+            <Route path="/"  exact>
+              <Lista />
+            </Route>
         </Switch>
         </div>
     </Router>
